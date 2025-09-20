@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package github.com.kheeva.mini_messenger.auth;
+
+import "api/v1/message.proto";
+import "google/api/annotations.proto";
+
+option go_package = "auth/pkg;auth";
+
+// Сервис Регистрации и аутентификации пользователей в системе
+service AuthService {
+  // Регистрирует пользователя, по уникальному email
+  rpc Register(RegisterRequest) returns (RegisterResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/register"
+      body: "*"
+    };
+  }
+  // Аутентифицирует пользователя и выдает ему авторизационный токен JWT
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+  // Обновляет токен пользователя
+  rpc Refresh(RefreshRequest) returns (RefreshResponse) {}
+}

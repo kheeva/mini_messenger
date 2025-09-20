@@ -17,7 +17,7 @@ COPY . .
 
 RUN go build -o /out/auth-server ./cmd/server
 
-FROM alpine:3.20
+FROM alpine:3.22
 
 WORKDIR /
 RUN apk add --no-cache ca-certificates \

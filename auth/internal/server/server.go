@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	pb "mini_messenger/auth/pkg/api"
+	pb "mini_messenger/auth/pkg/api/v1"
 
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 
