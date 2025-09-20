@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package github.com.kheeva.mini_messenger.user;
+
+import "api/v1/user_messages.proto";
+import "google/api/annotations.proto";
+
+option go_package = "user/pkg;user";
+
+// Сервис управления пользователями
+service UserService {
+  // Создает профиль пользователя
+  rpc CreateProfile(CreateProfileRequest) returns (CreateProfileResponse) {
+    option (google.api.http) = {
+      post: "/api/user/v1/user_profile"
+      body: "*"
+    };
+  }
+
+  // Обновляет профиль пользователя
+  rpc UpdateProfile(UpdateProfileRequest) returns (UpdateProfileResponse) {
+    option (google.api.http) = {
+      put: "/api/user/v1/user_profile"
+      body: "*"
+    };
+  }
+
+  // Получает профиль пользователя по id
+  rpc GetProfileByID(GetProfileByIDRequest) returns (GetProfileByIDResponse) {
+    option (google.api.http) = {get: "/api/user/v1/user_profile/{id}"};
+  }
+
+  // Получает профиль пользователя по nickname
+  rpc GetProfileByNickname(GetProfileByNicknameRequest) returns (GetProfileByNicknameResponse) {
+    option (google.api.http) = {get: "/api/user/v1/user_profile/{nickname}"};
+  }
+
+  // Ищет профили пользователей по nickname
+  rpc SearchByNickname(SearchByNicknameRequest) returns (SearchByNicknameResponse) {
+    option (google.api.http) = {get: "/api/user/v1/user_profile"};
+  }
+}

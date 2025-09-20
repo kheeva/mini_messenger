@@ -11,11 +11,11 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 
-	pb "mini_messenger/auth/pkg/api/v1"
+	apb "mini_messenger/auth/pkg/api/v1"
+	upb "mini_messenger/user/pkg/api/v1"
 )
 
 func run() error {
-	grpcEndpoint := flag.String("auth-grpc-endpoint", "auth:8000", "auth gRPC endpoint")
 	httpAddr := flag.String("http-addr", ":8080", "HTTP listen address")
 	flag.Parse()
 
@@ -26,12 +26,20 @@ func run() error {
 	mux := runtime.NewServeMux()
 
 	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
-	err := pb.RegisterAuthServiceHandlerFromEndpoint(ctx, mux, *grpcEndpoint, opts)
+	// Auth
+	authGrpcEndpoint := flag.String("auth-grpc-endpoint", "auth:8000", "auth gRPC endpoint")
+	err := apb.RegisterAuthServiceHandlerFromEndpoint(ctx, mux, *authGrpcEndpoint, opts)
+	if err != nil {
+		return err
+	}
+	// User
+	userGrpcEndpoint := flag.String("user-grpc-endpoint", "user:8001", "user gRPC endpoint")
+	err = upb.RegisterUserServiceHandlerFromEndpoint(ctx, mux, *userGrpcEndpoint, opts)
 	if err != nil {
 		return err
 	}
 
-	log.Printf("Starting HTTP gateway on %s, proxying to gRPC %s", *httpAddr, *grpcEndpoint)
+	log.Printf("Starting HTTP gateway on %s, proxying to gRPC", *httpAddr)
 	return http.ListenAndServe(*httpAddr, mux)
 }
 

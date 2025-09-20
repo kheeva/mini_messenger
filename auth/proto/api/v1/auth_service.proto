@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package github.com.kheeva.mini_messenger.auth;
 
-import "api/v1/message.proto";
+import "api/v1/auth_messages.proto";
 import "google/api/annotations.proto";
 
 option go_package = "auth/pkg;auth";
@@ -12,12 +12,22 @@ service AuthService {
   // Регистрирует пользователя, по уникальному email
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
-      post: "/api/v1/register"
+      post: "/api/auth/v1/register"
       body: "*"
     };
   }
   // Аутентифицирует пользователя и выдает ему авторизационный токен JWT
-  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc Login(LoginRequest) returns (LoginResponse) {
+    option (google.api.http) = {
+      post: "/api/auth/v1/login"
+      body: "*"
+    };
+  }
   // Обновляет токен пользователя
-  rpc Refresh(RefreshRequest) returns (RefreshResponse) {}
+  rpc Refresh(RefreshRequest) returns (RefreshResponse) {
+    option (google.api.http) = {
+      post: "/api/auth/v1/refresh"
+      body: "*"
+    };
+  }
 }

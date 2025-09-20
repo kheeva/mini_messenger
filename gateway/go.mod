@@ -7,9 +7,13 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250818200422-3122310a409c
 	google.golang.org/grpc v1.75.1
 	mini_messenger/auth v0.0.0-00010101000000-000000000000
+	mini_messenger/user v0.0.0-00010101000000-000000000000
 )
 
-replace mini_messenger/auth => ../auth
+replace (
+	mini_messenger/auth => ../auth
+	mini_messenger/user => ../user
+)
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.9-20250912141014-52f32327d4b0.1 // indirect

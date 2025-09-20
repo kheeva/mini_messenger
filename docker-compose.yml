@@ -13,6 +13,20 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+  user:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    image: mini_messenger-user:local
+    container_name: mini_messenger-user
+    ports:
+      - "8001:8001"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8001"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
   gateway:
     build:
       context: .
@@ -24,6 +38,8 @@ services:
     restart: unless-stopped
     depends_on:
       auth:
+        condition: service_healthy
+      user:
         condition: service_healthy
 networks:
   default:

@@ -14,19 +14,19 @@ message RegisterRequest {
   string email = 1 [(buf.validate.field).string.email = true];
   // password - пароль пользователя. инварианты: длина больше 12 символов, как комбинация букв разного регистра и цифр
   string password = 2 [
-      (buf.validate.field).string.min_len = 12,
-      (buf.validate.field).cel = {
-        id: "password_strength",
-        message: "must contain lowercase, uppercase, and a digit",
-        expression: 'this.matches("[a-z]") && this.matches("[A-Z]") && this.matches("[0-9]")'
-      }
-    ];
+    (buf.validate.field).string.min_len = 12,
+    (buf.validate.field).cel = {
+      id: "password_strength"
+      message: "must contain lowercase, uppercase, and a digit"
+      expression: 'this.matches("[a-z]") && this.matches("[A-Z]") && this.matches("[0-9]")'
+    }
+  ];
 }
 
 // Ответ AuthService.Register
 message RegisterResponse {
   // user_id - уникальный идентификатор пользователя
-  string user_id = 1;
+  string user_id = 1 [json_name = "user_id"];
 }
 
 // Запрос AuthService.Login
@@ -40,11 +40,11 @@ message LoginRequest {
 // Ответ AuthService.Login
 message LoginResponse {
   // access_token пользователя для последующей авториации
-  string access_token = 1;
+  string access_token = 1 [json_name = "access_token"];
   // refresh_token пользователя для обновления access_token
-  string refresh_token = 2;
+  string refresh_token = 2 [json_name = "refresh_token"];
   // user_id пользователя
-  string user_id = 3;
+  string user_id = 3 [json_name = "user_id"];
 }
 
 // Запрос AuthService.Refresh
@@ -56,9 +56,9 @@ message RefreshRequest {
 // Ответ AuthService.Refresh
 message RefreshResponse {
   // access_token пользователя для последующей авториации
-  string access_token = 1;
+  string access_token = 1 [json_name = "access_token"];
   // refresh_token пользователя для обновления access_token
-  string refresh_token = 2;
+  string refresh_token = 2 [json_name = "refresh_token"];
   // user_id пользователя
-  string user_id = 3;
+  string user_id = 3 [json_name = "user_id"];
 }

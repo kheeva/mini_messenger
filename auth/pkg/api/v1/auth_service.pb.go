@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.9
 // 	protoc        (unknown)
-// source: api/v1/service.proto
+// source: api/v1/auth_service.proto
 
 package auth
 
@@ -21,18 +21,18 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-var File_api_v1_service_proto protoreflect.FileDescriptor
+var File_api_v1_auth_service_proto protoreflect.FileDescriptor
 
-const file_api_v1_service_proto_rawDesc = "" +
+const file_api_v1_auth_service_proto_rawDesc = "" +
 	"\n" +
-	"\x14api/v1/service.proto\x12%github.com.kheeva.mini_messenger.auth\x1a\x14api/v1/message.proto\x1a\x1cgoogle/api/annotations.proto2\x9a\x03\n" +
-	"\vAuthService\x12\x98\x01\n" +
-	"\bRegister\x126.github.com.kheeva.mini_messenger.auth.RegisterRequest\x1a7.github.com.kheeva.mini_messenger.auth.RegisterResponse\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\"\x10/api/v1/register\x12t\n" +
-	"\x05Login\x123.github.com.kheeva.mini_messenger.auth.LoginRequest\x1a4.github.com.kheeva.mini_messenger.auth.LoginResponse\"\x00\x12z\n" +
-	"\aRefresh\x125.github.com.kheeva.mini_messenger.auth.RefreshRequest\x1a6.github.com.kheeva.mini_messenger.auth.RefreshResponse\"\x00B\xfe\x01\n" +
-	")com.github.com.kheeva.mini_messenger.authB\fServiceProtoP\x01Z\rauth/pkg;auth\xa2\x02\x05GCKMA\xaa\x02$Github.Com.Kheeva.MiniMessenger.Auth\xca\x02$Github\\Com\\Kheeva\\MiniMessenger\\Auth\xe2\x020Github\\Com\\Kheeva\\MiniMessenger\\Auth\\GPBMetadata\xea\x02(Github::Com::Kheeva::MiniMessenger::Authb\x06proto3"
+	"\x19api/v1/auth_service.proto\x12%github.com.kheeva.mini_messenger.auth\x1a\x1aapi/v1/auth_messages.proto\x1a\x1cgoogle/api/annotations.proto2\xdd\x03\n" +
+	"\vAuthService\x12\x9d\x01\n" +
+	"\bRegister\x126.github.com.kheeva.mini_messenger.auth.RegisterRequest\x1a7.github.com.kheeva.mini_messenger.auth.RegisterResponse\" \x82\xd3\xe4\x93\x02\x1a:\x01*\"\x15/api/auth/v1/register\x12\x91\x01\n" +
+	"\x05Login\x123.github.com.kheeva.mini_messenger.auth.LoginRequest\x1a4.github.com.kheeva.mini_messenger.auth.LoginResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/api/auth/v1/login\x12\x99\x01\n" +
+	"\aRefresh\x125.github.com.kheeva.mini_messenger.auth.RefreshRequest\x1a6.github.com.kheeva.mini_messenger.auth.RefreshResponse\"\x1f\x82\xd3\xe4\x93\x02\x19:\x01*\"\x14/api/auth/v1/refreshB\x82\x02\n" +
+	")com.github.com.kheeva.mini_messenger.authB\x10AuthServiceProtoP\x01Z\rauth/pkg;auth\xa2\x02\x05GCKMA\xaa\x02$Github.Com.Kheeva.MiniMessenger.Auth\xca\x02$Github\\Com\\Kheeva\\MiniMessenger\\Auth\xe2\x020Github\\Com\\Kheeva\\MiniMessenger\\Auth\\GPBMetadata\xea\x02(Github::Com::Kheeva::MiniMessenger::Authb\x06proto3"
 
-var file_api_v1_service_proto_goTypes = []any{
+var file_api_v1_auth_service_proto_goTypes = []any{
 	(*RegisterRequest)(nil),  // 0: github.com.kheeva.mini_messenger.auth.RegisterRequest
 	(*LoginRequest)(nil),     // 1: github.com.kheeva.mini_messenger.auth.LoginRequest
 	(*RefreshRequest)(nil),   // 2: github.com.kheeva.mini_messenger.auth.RefreshRequest
@@ -40,7 +40,7 @@ var file_api_v1_service_proto_goTypes = []any{
 	(*LoginResponse)(nil),    // 4: github.com.kheeva.mini_messenger.auth.LoginResponse
 	(*RefreshResponse)(nil),  // 5: github.com.kheeva.mini_messenger.auth.RefreshResponse
 }
-var file_api_v1_service_proto_depIdxs = []int32{
+var file_api_v1_auth_service_proto_depIdxs = []int32{
 	0, // 0: github.com.kheeva.mini_messenger.auth.AuthService.Register:input_type -> github.com.kheeva.mini_messenger.auth.RegisterRequest
 	1, // 1: github.com.kheeva.mini_messenger.auth.AuthService.Login:input_type -> github.com.kheeva.mini_messenger.auth.LoginRequest
 	2, // 2: github.com.kheeva.mini_messenger.auth.AuthService.Refresh:input_type -> github.com.kheeva.mini_messenger.auth.RefreshRequest
@@ -54,26 +54,26 @@ var file_api_v1_service_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_api_v1_service_proto_init() }
-func file_api_v1_service_proto_init() {
-	if File_api_v1_service_proto != nil {
+func init() { file_api_v1_auth_service_proto_init() }
+func file_api_v1_auth_service_proto_init() {
+	if File_api_v1_auth_service_proto != nil {
 		return
 	}
-	file_api_v1_message_proto_init()
+	file_api_v1_auth_messages_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_v1_service_proto_rawDesc), len(file_api_v1_service_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_api_v1_auth_service_proto_rawDesc), len(file_api_v1_auth_service_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_api_v1_service_proto_goTypes,
-		DependencyIndexes: file_api_v1_service_proto_depIdxs,
+		GoTypes:           file_api_v1_auth_service_proto_goTypes,
+		DependencyIndexes: file_api_v1_auth_service_proto_depIdxs,
 	}.Build()
-	File_api_v1_service_proto = out.File
-	file_api_v1_service_proto_goTypes = nil
-	file_api_v1_service_proto_depIdxs = nil
+	File_api_v1_auth_service_proto = out.File
+	file_api_v1_auth_service_proto_goTypes = nil
+	file_api_v1_auth_service_proto_depIdxs = nil
 }
