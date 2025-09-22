@@ -27,6 +27,20 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+  social:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    image: mini_messenger-social:local
+    container_name: mini_messenger-social
+    ports:
+      - "8002:8002"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "8002"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
   gateway:
     build:
       context: .
@@ -40,6 +54,8 @@ services:
       auth:
         condition: service_healthy
       user:
+        condition: service_healthy
+      social:
         condition: service_healthy
 networks:
   default:

@@ -274,7 +274,7 @@ func RegisterUserServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/GetProfileByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile/{nickname}"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/GetProfileByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile/nickname/{nickname}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -294,7 +294,7 @@ func RegisterUserServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/SearchByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/SearchByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile/search"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -403,7 +403,7 @@ func RegisterUserServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/GetProfileByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile/{nickname}"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/GetProfileByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile/nickname/{nickname}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -420,7 +420,7 @@ func RegisterUserServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/SearchByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/github.com.kheeva.mini_messenger.user.UserService/SearchByNickname", runtime.WithHTTPPathPattern("/api/user/v1/user_profile/search"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -440,8 +440,8 @@ var (
 	pattern_UserService_CreateProfile_0        = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "user", "v1", "user_profile"}, ""))
 	pattern_UserService_UpdateProfile_0        = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "user", "v1", "user_profile"}, ""))
 	pattern_UserService_GetProfileByID_0       = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "user", "v1", "user_profile", "id"}, ""))
-	pattern_UserService_GetProfileByNickname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"api", "user", "v1", "user_profile", "nickname"}, ""))
-	pattern_UserService_SearchByNickname_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"api", "user", "v1", "user_profile"}, ""))
+	pattern_UserService_GetProfileByNickname_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4, 1, 0, 4, 1, 5, 4}, []string{"api", "user", "v1", "user_profile", "nickname"}, ""))
+	pattern_UserService_SearchByNickname_0     = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 2, 4}, []string{"api", "user", "v1", "user_profile", "search"}, ""))
 )
 
 var (

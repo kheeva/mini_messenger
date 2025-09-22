@@ -25,13 +25,13 @@ var File_api_v1_user_service_proto protoreflect.FileDescriptor
 
 const file_api_v1_user_service_proto_rawDesc = "" +
 	"\n" +
-	"\x19api/v1/user_service.proto\x12%github.com.kheeva.mini_messenger.user\x1a\x1aapi/v1/user_messages.proto\x1a\x1cgoogle/api/annotations.proto2\xb4\a\n" +
+	"\x19api/v1/user_service.proto\x12%github.com.kheeva.mini_messenger.user\x1a\x1aapi/v1/user_messages.proto\x1a\x1cgoogle/api/annotations.proto2\xc4\a\n" +
 	"\vUserService\x12\xb0\x01\n" +
 	"\rCreateProfile\x12;.github.com.kheeva.mini_messenger.user.CreateProfileRequest\x1a<.github.com.kheeva.mini_messenger.user.CreateProfileResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\"\x19/api/user/v1/user_profile\x12\xb0\x01\n" +
 	"\rUpdateProfile\x12;.github.com.kheeva.mini_messenger.user.UpdateProfileRequest\x1a<.github.com.kheeva.mini_messenger.user.UpdateProfileResponse\"$\x82\xd3\xe4\x93\x02\x1e:\x01*\x1a\x19/api/user/v1/user_profile\x12\xb5\x01\n" +
-	"\x0eGetProfileByID\x12<.github.com.kheeva.mini_messenger.user.GetProfileByIDRequest\x1a=.github.com.kheeva.mini_messenger.user.GetProfileByIDResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/api/user/v1/user_profile/{id}\x12\xcd\x01\n" +
-	"\x14GetProfileByNickname\x12B.github.com.kheeva.mini_messenger.user.GetProfileByNicknameRequest\x1aC.github.com.kheeva.mini_messenger.user.GetProfileByNicknameResponse\",\x82\xd3\xe4\x93\x02&\x12$/api/user/v1/user_profile/{nickname}\x12\xb6\x01\n" +
-	"\x10SearchByNickname\x12>.github.com.kheeva.mini_messenger.user.SearchByNicknameRequest\x1a?.github.com.kheeva.mini_messenger.user.SearchByNicknameResponse\"!\x82\xd3\xe4\x93\x02\x1b\x12\x19/api/user/v1/user_profileB\x82\x02\n" +
+	"\x0eGetProfileByID\x12<.github.com.kheeva.mini_messenger.user.GetProfileByIDRequest\x1a=.github.com.kheeva.mini_messenger.user.GetProfileByIDResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/api/user/v1/user_profile/{id}\x12\xd6\x01\n" +
+	"\x14GetProfileByNickname\x12B.github.com.kheeva.mini_messenger.user.GetProfileByNicknameRequest\x1aC.github.com.kheeva.mini_messenger.user.GetProfileByNicknameResponse\"5\x82\xd3\xe4\x93\x02/\x12-/api/user/v1/user_profile/nickname/{nickname}\x12\xbd\x01\n" +
+	"\x10SearchByNickname\x12>.github.com.kheeva.mini_messenger.user.SearchByNicknameRequest\x1a?.github.com.kheeva.mini_messenger.user.SearchByNicknameResponse\"(\x82\xd3\xe4\x93\x02\"\x12 /api/user/v1/user_profile/searchB\x82\x02\n" +
 	")com.github.com.kheeva.mini_messenger.userB\x10UserServiceProtoP\x01Z\ruser/pkg;user\xa2\x02\x05GCKMU\xaa\x02$Github.Com.Kheeva.MiniMessenger.User\xca\x02$Github\\Com\\Kheeva\\MiniMessenger\\User\xe2\x020Github\\Com\\Kheeva\\MiniMessenger\\User\\GPBMetadata\xea\x02(Github::Com::Kheeva::MiniMessenger::Userb\x06proto3"
 
 var file_api_v1_user_service_proto_goTypes = []any{

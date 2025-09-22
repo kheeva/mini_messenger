@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package github.com.kheeva.mini_messenger.social;
+
+import "api/v1/social_messages.proto";
+import "google/api/annotations.proto";
+
+option go_package = "social/pkg;social";
+
+// Сервис управления социальными связями пользователя
+service SocialService {
+  // Запрос на добавление в друзья
+  rpc SendFriend(SendFriendRequest) returns (SendFriendResponse) {
+    option (google.api.http) = {
+      post: "/api/social/v1/friend_request"
+      body: "*"
+    };
+  }
+
+  // Запрос списка запросов на добавление в друзья
+  rpc ListRequests(ListRequestsRequest) returns (ListRequestsResponse) {
+    option (google.api.http) = {get: "/api/social/v1/friend_request/user_id/{user_id}"};
+  }
+
+  // Принять польщователя в друзья
+  rpc AcceptFriend(AcceptFriendRequest) returns (AcceptFriendResponse) {
+    option (google.api.http) = {
+      put: "/api/social/v1/friend_request/accept/{request_id}"
+      body: "*"
+    };
+  }
+
+  // Не принимать пользователя в друзья
+  rpc DeclineFriend(DeclineFriendRequest) returns (DeclineFriendResponse) {
+    option (google.api.http) = {
+      put: "/api/social/v1/friend_request/decline/{request_id}"
+      body: "*"
+    };
+  }
+
+  // Удалить пользователя из друзей
+  rpc RemoveFriend(RemoveFriendRequest) returns (RemoveFriendResponse) {
+    option (google.api.http) = {delete: "/api/social/v1/friend_request/user_id/{user_id}"};
+  }
+
+  // Запрос списка друзей
+  rpc ListFriends(ListFriendsRequest) returns (ListFriendsResponse) {
+    option (google.api.http) = {get: "/api/social/v1/friends"};
+  }
+}

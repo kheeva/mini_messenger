@@ -95,7 +95,7 @@ message SearchByNicknameRequest {
   // Поисковая строка
   string query = 1 [(buf.validate.field).string.min_len = 1];
   // Лимит вывода
-  uint32 limit = 2 [(buf.validate.field).uint32.lte = 100];
+  optional uint32 limit = 2 [(buf.validate.field).uint32.lte = 100];
 }
 
 // UserProfile

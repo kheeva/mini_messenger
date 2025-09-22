@@ -44,6 +44,31 @@ func (s *server) CreateProfile(ctx context.Context, req *pb.CreateProfileRequest
 	return &pb.CreateProfileResponse{UserId: "1", Nickname: "zerocool", Bio: &bio, AvatarUrl: &avatarUrl}, nil
 }
 
+func (s *server) UpdateProfile(ctx context.Context, req *pb.UpdateProfileRequest) (*pb.UpdateProfileResponse, error) {
+	bio := "bio"
+	avatarUrl := "http://example.com"
+	return &pb.UpdateProfileResponse{UserId: "1", Nickname: "zerocool", Bio: &bio, AvatarUrl: &avatarUrl}, nil
+}
+
+func (s *server) GetProfileByID(ctx context.Context, req *pb.GetProfileByIDRequest) (*pb.GetProfileByIDResponse, error) {
+	bio := "bio"
+	avatarUrl := "http://example.com"
+	return &pb.GetProfileByIDResponse{UserId: "1", Nickname: "zerocool", Bio: &bio, AvatarUrl: &avatarUrl}, nil
+}
+
+func (s *server) GetProfileByNickname(ctx context.Context, req *pb.GetProfileByNicknameRequest) (*pb.GetProfileByNicknameResponse, error) {
+	bio := "bio"
+	avatarUrl := "http://example.com"
+	return &pb.GetProfileByNicknameResponse{UserId: "1", Nickname: "zerocool", Bio: &bio, AvatarUrl: &avatarUrl}, nil
+}
+
+func (s *server) SearchByNickname(ctx context.Context, req *pb.SearchByNicknameRequest) (*pb.SearchByNicknameResponse, error) {
+	bio := "bio"
+	avatarUrl := "http://example.com"
+	userProfile := &pb.UserProfile{UserId: "1", Nickname: "zerocool", Bio: &bio, AvatarUrl: &avatarUrl}
+	return &pb.SearchByNicknameResponse{Results: []*pb.UserProfile{userProfile}}, nil
+}
+
 func (s *server) Check(ctx context.Context, in *healthpb.HealthCheckRequest) (*healthpb.HealthCheckResponse, error) {
 	return &healthpb.HealthCheckResponse{Status: healthpb.HealthCheckResponse_SERVING}, nil
 }

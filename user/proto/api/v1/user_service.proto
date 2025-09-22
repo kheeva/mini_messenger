@@ -32,11 +32,11 @@ service UserService {
 
   // Получает профиль пользователя по nickname
   rpc GetProfileByNickname(GetProfileByNicknameRequest) returns (GetProfileByNicknameResponse) {
-    option (google.api.http) = {get: "/api/user/v1/user_profile/{nickname}"};
+    option (google.api.http) = {get: "/api/user/v1/user_profile/nickname/{nickname}"};
   }
 
   // Ищет профили пользователей по nickname
   rpc SearchByNickname(SearchByNicknameRequest) returns (SearchByNicknameResponse) {
-    option (google.api.http) = {get: "/api/user/v1/user_profile"};
+    option (google.api.http) = {get: "/api/user/v1/user_profile/search"};
   }
 }

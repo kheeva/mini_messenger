@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package github.com.kheeva.mini_messenger.social;
+
+import "buf/validate/validate.proto";
+import "google/api/field_behavior.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "social/pkg;social";
+
+// Запрос на добавление в список друзей
+message SendFriendRequest {
+  // Id пользователя
+  string user_id = 1 [(buf.validate.field).string.min_len = 1];
+}
+
+// Ответ на добавление в список друзей
+message SendFriendResponse {
+  string request_id = 1;
+  string status = 2;
+}
+
+// Запрос на получение списка запросов к пользователю
+message ListRequestsRequest {
+  string user_id = 1 [(buf.validate.field).string.min_len = 1];
+}
+
+// Данные запроса на добавление в друзья
+message FriendRequest {
+  string request_id = 1;
+  string status = 2;
+}
+
+// Ответ на получение списка запросов к пользователю
+message ListRequestsResponse {
+  repeated FriendRequest requests = 1;
+}
+
+// Запрос на принятие запроса на добавление в друзья
+message AcceptFriendRequest {
+  string request_id = 1;
+}
+
+// Ответ на принятие запроса на добавление в друзья
+message AcceptFriendResponse {
+  string request_id = 1;
+  string status = 2; // ACCEPTED в коде
+}
+
+// Запрос на отклонение запроса на добавление в друзья
+message DeclineFriendRequest {
+  string request_id = 1;
+}
+
+// Ответ на отклонение запроса на добавление в друзья
+message DeclineFriendResponse {
+  string request_id = 1;
+  string status = 2; // DECLINED в коде
+}
+
+// Запрос на удаление пользователя из друзей
+message RemoveFriendRequest {
+  string user_id = 1 [(buf.validate.field).string.min_len = 1];
+}
+
+// Оттвет на удаление пользователя из друзей
+message RemoveFriendResponse {}
+
+// Запрос на получение списка друзей
+message ListFriendsRequest {
+  string user_id = 1 [(buf.validate.field).string.min_len = 1];
+  uint32 limit = 2 [(buf.validate.field).uint32.lte = 100];
+  string cursor = 3;
+}
+
+// Ответ на запрос на получение списка друзей
+message ListFriendsResponse {
+  repeated string friend_user_ids = 1;
+}
